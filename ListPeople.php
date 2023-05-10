@@ -73,6 +73,12 @@ class ListPeople {
             $conn->close();
     }
 
+    function deleteArray2($array){
+        foreach($array as $i){
+            $i->deletePerson();
+        }
+    }
+    
 }
 
 ?>
