@@ -127,7 +127,6 @@ class PeopleDB {
         $obj->cityOfBirth = $this->cityOfBirth;
         $this->sexSwith($obj);
         $this->findOutAge($obj);
-        echo "yyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
         return $obj;
     }
 }
