@@ -28,9 +28,6 @@ class PeopleDB {
                 echo "Ошибка: " . $conn->error;
             }
             $conn->close();
-
-            //проверка существует ли такой id, если нет ошибка, если да делаем
-            //деланье
         } else if (count($peopleInfo) === 5) {
 
             if (ctype_alpha($peopleInfo[0]) and ctype_alpha($peopleInfo[1]) and 
@@ -59,12 +56,16 @@ class PeopleDB {
                 echo "Не верные данные"; //для проверки русских букв нужно изменить настройки локали (setlocale) // setlocale(LC_ALL, 'ru_RU.CP1251');
             }
         } else {
-            echo "Не верное количество данные, их должно быть 1 или 5";
+            //echo "Не верное количество данные, их должно быть 1 или 5";
         }
     }
 
     function getId() {
         return $this->id;
+    }
+
+    function setId($id) {
+        $this->id = $id;
     }
 
     //предполагается, что этот метод используется для уже созданных записей, к примеру в объекте изменили несколько значений и теперь нужно сохранить изменения в БД
@@ -131,22 +132,4 @@ class PeopleDB {
     }
 }
 
-$c2 = new PeopleDB("Umi", "sure", "1999-09-28", "0", "Gomel");
-//$c2 = new PeopleDB(2);
-//$c2->__construct("nami", "sure", "septebdre", 1, "Gomel");
-//var_dump($c1);
-//$c2->name = "eeee";
-//$c2->sex = 1;
-//$c2->savePerson();
-//$c2->deletePerson();
-
-var_dump($c2);
-
-//PeopleDB::sexSwith($c2);
-$x = $c2->formattingPerson();
-//PeopleDB::findOutAge($c2);
-var_dump($c2);
-echo "\n\n///////////////////////////////////////////";
-var_dump($x);
-//echo $c1->getId();
 ?>
