@@ -25,6 +25,7 @@ $c2 = new PeopleDB(2);
 
 $arr = new ListPeople();
 var_dump($arr->getArrayPeople($arr->arrId));
+$arr->deleteArray2($arr->getArrayPeople($arr->arrId));
 //$arr->getArrayPeople($arr->arrId);
 //var_dump($arr->arrPip);
 //var_dump($arr);
