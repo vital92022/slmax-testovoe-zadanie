@@ -51,18 +51,18 @@ class ListPeople {
             echo "Ошибка: " . $conn->error;
         }
         //var_dump($x);
-        $y[] = $x;
+        $arrayObject[] = $x;
         }
         $conn->close();
-        return $y;
+        return $arrayObject;
     }
 
-    function deleteArray($array){
+    function deleteArray($arrayId){
         $conn = new mysqli("localhost", "root", "", "DB");
             if($conn->connect_error){
                 die("Ошибка: " . $conn->connect_error);
             }
-            foreach($array as $i){
+            foreach($arrayId as $i){
                 $sql = "DELETE FROM infoPeople WHERE id = '$i'";
                 if($result= $conn->query($sql)){
                 }
@@ -73,8 +73,8 @@ class ListPeople {
             $conn->close();
     }
 
-    function deleteArray2($array){
-        foreach($array as $i){
+    function deleteArray2($arrayObject){
+        foreach($arrayObject as $i){
             $i->deletePerson();
         }
     }
