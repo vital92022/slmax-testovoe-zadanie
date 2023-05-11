@@ -29,29 +29,29 @@ class ListPeople {
         $conn->close();
     }
 
-    function getArrayPeople($array) {
+    function getArrayPeople($arrayId) {
         $conn = new mysqli("localhost", "root", "", "DB");
         if($conn->connect_error){
             die("Ошибка: " . $conn->connect_error);
         }
-        $x = new PeopleDB();
-        foreach($array as $i){
+        $person = new PeopleDB();
+        foreach($arrayId as $i){
             $sql = "SELECT * FROM infoPeople WHERE id = '$i'";
-            $x = new PeopleDB();
+            $person = new PeopleDB();
             if($result= $conn->query($sql)){
                 foreach($result as $row){
-                    $x->setId($row["id"]);
-                    $x->name = $row["name"];
-                    $x->surname = $row["surname"];
-                    $x->dateOfBirth = $row["dateOfBirth"];
-                    $x->sex = $row["sex"];
-                    $x->cityOfBirth = $row["cityOfBirth"];
+                    $person->setId($row["id"]);
+                    $person->name = $row["name"];
+                    $person->surname = $row["surname"];
+                    $person->dateOfBirth = $row["dateOfBirth"];
+                    $person->sex = $row["sex"];
+                    $person->cityOfBirth = $row["cityOfBirth"];
                 }
         } else{
             echo "Ошибка: " . $conn->error;
         }
-        //var_dump($x);
-        $arrayObject[] = $x;
+        //var_dump($person);
+        $arrayObject[] = $person;
         }
         $conn->close();
         return $arrayObject;
